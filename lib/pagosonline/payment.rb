@@ -1,7 +1,7 @@
 module Pagosonline
   class Payment < Hashie::Dash
-    GATEWAY = "https://gatewaylap.pagosonline.net/ppp-web-gateway/"
-    TEST_GATEWAY= "https://stg.gatewaylap.pagosonline.net/ppp-web-gateway/"
+    GATEWAY = "https://gateway.pagosonline.net/apps/gateway/index.html"
+    TEST_GATEWAY= "https://gateway2.pagosonline.net/apps/gateway/index.html"
     SIGNATURE_JOIN = "~"
 
     attr_accessor :client

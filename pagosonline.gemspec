@@ -5,8 +5,8 @@ require "pagosonline/version"
 Gem::Specification.new do |s|
   s.name        = "pagosonline"
   s.version     = Pagosonline::VERSION
-  s.authors     = ["Sebastian Gamboa"]
-  s.email       = ["me@sagmor.com"]
+  s.authors     = ["Sebastian Gamboa, Carlos Lopez"]
+  s.email       = ["me@sagmor.com,carloshlopez@gmail.com"]
   s.homepage    = ""
   s.summary     = %q{Pagosonline}
   s.description = %q{Pagosonline}
