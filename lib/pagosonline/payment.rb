@@ -17,13 +17,15 @@ module Pagosonline
     property :buyer_name
     property :buyer_email
     property :language, :default => "es"
+    property :iva, :default => 0
+    property :dev_iva, :default => 0
 
     def signature
       Digest::MD5.hexdigest([
         self.client.key,
         self.client.merchant_id,
         self.reference,
-        self.amount.to_i,
+        self.amount,
         self.currency
       ].join(SIGNATURE_JOIN))
     end
@@ -58,18 +60,16 @@ module Pagosonline
       def params
         params = {
           "usuarioId"         => self.client.merchant_id,
-          "cuentaId"          => self.client.account_id,
           "refVenta"          => self.reference,
           "firma"             => self.signature,
-          "valor"             => self.amount.to_i,
-          "iva"               => nil,
-          "baseDevolucionIva" => nil,
+          "valor"             => self.amount,
+          "iva"               => self.iva,
+          "baseDevolucionIva" => self.dev_iva,
           "moneda"            => self.currency,
           "descripcion"       => self.description,
           "lng"               => self.language,
           "url_respuesta"     => self.response_url,
           "url_confirmacion"  => self.confirmation_url,
-
           "nombreComprador"   => self.buyer_name,
           "emailComprador"    => self.buyer_email
         }
