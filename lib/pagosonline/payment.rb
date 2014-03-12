@@ -59,7 +59,7 @@ module Pagosonline
 
       def params
         params = {
-          "usuarioId"         => self.client.merchant_id,
+          "usuarioId"         => self.client.account_id,
           "refVenta"          => self.reference,
           "firma"             => self.signature,
           "valor"             => self.amount,
