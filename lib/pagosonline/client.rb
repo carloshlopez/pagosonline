@@ -1,10 +1,8 @@
 module Pagosonline
   class Client
-    attr_accessor :merchant_id, :account_id, :login, :key
+    attr_accessor :account_id, :key
     def initialize(options = {})
-      self.merchant_id  = options[:merchant_id]
       self.account_id   = options[:account_id]
-      self.login        = options[:login]
       self.key          = options[:key]
       self.test         = !!options[:test]
     end

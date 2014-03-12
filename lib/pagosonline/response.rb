@@ -5,7 +5,8 @@ module Pagosonline
     attr_accessor :client
     attr_accessor :params
 
-    def initialize(params)
+    def initialize(client, params = {})
+      self.client = client
       self.params = params
     end
 
@@ -62,7 +63,7 @@ module Pagosonline
     def valid?
       self.signature == Digest::MD5.hexdigest([
         self.client.key,
-        self.client.merchant_id,
+        self.client.account_id,
         self.reference,
         ("%.1f" % self.amount),
         self.currency,

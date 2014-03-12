@@ -23,7 +23,7 @@ module Pagosonline
     def signature
       Digest::MD5.hexdigest([
         self.client.key,
-        self.client.merchant_id,
+        self.client.account_id,
         self.reference,
         self.amount,
         self.currency
