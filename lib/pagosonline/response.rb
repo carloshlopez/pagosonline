@@ -23,7 +23,8 @@ module Pagosonline
     end
 
     def state_code
-      (params["estado"] || params["estado_pol"]).to_i
+      # (params["estado"] || params["estado_pol"]).to_i
+      params["estado_pol"].to_i
     end
 
     def state
