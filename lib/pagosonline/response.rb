@@ -61,14 +61,14 @@ module Pagosonline
     end
 
     def valid?
-      self.signature == Digest::MD5.hexdigest([
+      self.signature.upcase == Digest::MD5.hexdigest([
         self.client.key,
         self.client.account_id,
         self.reference,
         ("%.2f" % self.amount),
         self.currency,
         self.state_code
-      ].join(SIGNATURE_JOIN))
+      ].join(SIGNATURE_JOIN)).upcase
     end
   end
 end
