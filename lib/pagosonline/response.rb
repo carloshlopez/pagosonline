@@ -65,7 +65,7 @@ module Pagosonline
         self.client.key,
         self.client.account_id,
         self.reference,
-        ("%.1f" % self.amount),
+        self.amount,
         self.currency,
         self.state_code
       ].join(SIGNATURE_JOIN))
