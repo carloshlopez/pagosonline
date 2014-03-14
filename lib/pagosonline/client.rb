@@ -20,7 +20,7 @@ module Pagosonline
     end
 
     def test?
-      test == 1
+      @test == 1
     end
 
     def test=(test)
