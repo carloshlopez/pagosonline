@@ -4,7 +4,7 @@ module Pagosonline
     def initialize(options = {})
       self.account_id   = options[:account_id]
       self.key          = options[:key]
-      self.test         = options[:test]
+      self.test         = options[:test].to_i
     end
 
     def payment(options)
@@ -20,9 +20,11 @@ module Pagosonline
     end
 
     def test?
-      self.test == 1
+      test == 1
     end
 
-    
+    def test=(test)
+      @test = test
+    end
   end
 end
